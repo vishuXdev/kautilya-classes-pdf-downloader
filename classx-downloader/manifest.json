@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "ClassX PDF Downloader by @vishuXdev",
+  "version": "5.0",
+  "description": "Download and convert ClassX PDF notes. Built by @vishuXdev.",
+  "homepage_url": "https://vishalgupta.dev",
+  "permissions": [
+    "scripting",
+    "downloads",
+    "tabs",
+    "webNavigation",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "*://*.classx.co.in/*",
+    "*://*.appx.co.in/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ClassX PDF Downloader by @vishuXdev"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.classx.co.in/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
